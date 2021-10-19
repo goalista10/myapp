@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-//const expressValidator = require("express-validator");
+const expressValidator = require("express-validator");
 
 const postRoutes = require('./routes/post');
 
@@ -16,7 +16,7 @@ mongoose.connection.on("error", err => {
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
-//app.use(expressValidator)
+app.use(expressValidator);
 app.use("/",postRoutes);
  
 app.listen(3000);
